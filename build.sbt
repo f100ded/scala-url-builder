@@ -2,7 +2,7 @@ import Dependencies._
 
 name := "scala-url-builder"
 
-organization := "org.f100ded"
+organization := "org.f100ded.scala-url-builder"
 
 scalaVersion := Version.scala
 
