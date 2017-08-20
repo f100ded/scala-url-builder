@@ -15,8 +15,6 @@ addons:
   hostname: scala-url-builder
 before_script:
   - jdk_switcher use $JDK
-script: "sbt clean coverage test"
-after_success: "sbt coverageReport coveralls"
 matrix:
   # scala 2.12 requires java 8
   exclude:
@@ -24,4 +22,11 @@ matrix:
       env: JDK=oraclejdk7
     - scala: 2.12.2
       env: JDK=openjdk7
-
+jobs:
+  include:
+    - stage: test
+      script: sbt clean coverage test
+    - stage: upload
+      script: sbt coverageReport coveralls
+      scala: 2.12.2
+      env: JDK=oraclejdk8
