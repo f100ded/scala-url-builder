@@ -4,11 +4,13 @@ name := "scala-url-builder"
 
 organization := "org.f100ded.scala-url-builder"
 
-scalaVersion := Version.scala
+scalaVersion := Versions.scala
 
-crossScalaVersions := Version.crossScala
+crossScalaVersions := Versions.crossScala
 
 scalacOptions ++= List("-unchecked", "-deprecation", "-encoding", "UTF-8")
+
+libraryDependencies += Libraries.scalaTest
 
 licenses := Seq("Apache 2.0 License" -> url("http://www.apache.org/licenses/LICENSE-2.0.html"))
 
