@@ -5,5 +5,5 @@
 scala-url-builder is a minimalist library for constructing URLs
 
 ```
-libraryDependencies += "org.f100ded.scalaurlbuilder" % "scalaurlbuilder" % "1.0.0"
+libraryDependencies += "org.f100ded.scala-url-builder" % "scala-url-builder" % "1.0.0"
 ```
