@@ -1,32 +1,24 @@
-sudo: required
+sudo: false
 dist: trusty
+
 language: scala
+
 scala:
-   - 2.11.11
-   - 2.12.2
-env:
-- JDK=oraclejdk8
-- JDK=openjdk8
-- JDK=oraclejdk7
-- JDK=openjdk7
+  - 2.11.11
+  - 2.12.2
+jdk:
+  - oraclejdk8
+  - openjdk8
+
 addons:
   hosts:
     - scala-url-builder
   hostname: scala-url-builder
-before_script:
-  - jdk_switcher use $JDK
-matrix:
-  # scala 2.12 requires java 8
-  exclude:
-    - scala: 2.12.2
-      env: JDK=oraclejdk7
-    - scala: 2.12.2
-      env: JDK=openjdk7
+
+script: sbt clean coverage test
 jobs:
   include:
-    - stage: test
-      script: sbt clean coverage test
-    - stage: upload
+    - stage: coveralls
       script: sbt coverageReport coveralls
       scala: 2.12.2
-      env: JDK=oraclejdk8
+      jdk: oraclejdk8
