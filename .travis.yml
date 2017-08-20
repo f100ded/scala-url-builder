@@ -8,7 +8,9 @@ scala:
   - 2.12.2
 jdk:
   - oraclejdk8
+  - oraclejdk7
   - openjdk8
+  - openjdk7
 
 addons:
   hosts:
@@ -22,3 +24,10 @@ jobs:
       script: sbt coverageReport coveralls
       scala: 2.12.2
       jdk: oraclejdk8
+matrix:
+  # scala 2.12 requires java 8
+  exclude:
+    - scala: 2.12.2
+      jdk: oraclejdk7
+    - scala: 2.12.2
+      jdk: openjdk7
