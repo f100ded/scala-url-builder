@@ -1,0 +1,24 @@
+sudo: required
+dist: trusty
+language: scala
+scala:
+   - 2.11.11
+   - 2.12.2
+env:
+- JDK=oraclejdk8
+- JDK=openjdk8
+- JDK=oraclejdk7
+- JDK=openjdk7
+addons:
+  hosts:
+    - scala-url-builder
+  hostname: scala-url-builder
+before_script:
+  - jdk_switcher use $JDK
+matrix:
+  # scala 2.12 requires java 8
+  exclude:
+    - scala: 2.12.2
+      env: JDK=oraclejdk7
+    - scala: 2.12.2
+      env: JDK=openjdk7
