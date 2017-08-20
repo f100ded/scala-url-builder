@@ -14,7 +14,6 @@ addons:
     - scala-url-builder
   hostname: scala-url-builder
 
-script: sbt clean coverage test
 jobs:
   include:
     - stage: coveralls
