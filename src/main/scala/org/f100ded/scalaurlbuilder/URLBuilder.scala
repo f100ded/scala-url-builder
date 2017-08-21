@@ -4,6 +4,14 @@ import java.net.{URL, URLDecoder, URLEncoder}
 
 /**
   * Simple way of constructing URLs
+  *
+  * todo before publishing:
+  * - rename addPathSegments to withSegments
+  * - tailrec
+  * - handle all possible ways of creating urls
+  * - add code comments
+  * - 100 code coverage
+  * - add documentation and add examples in readme
   */
 class URLBuilder private(base: String, pathSegments: List[String], queryParams: List[(String, String)]) {
   final def addPathSegments(segments: String): URLBuilder = segments.split("/", 2).toList match {
