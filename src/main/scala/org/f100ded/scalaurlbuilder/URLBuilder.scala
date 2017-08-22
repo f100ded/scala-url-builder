@@ -8,7 +8,7 @@ import java.net.{MalformedURLException, URL, URLDecoder, URLEncoder}
 class URLBuilder private(base: String,
                          pathSegments: List[String],
                          val queryParameters: Option[String],
-                         fragment: Option[String]) {
+                         val fragment: Option[String]) {
   lazy val location: String = (Seq(base) ++ pathSegments.map(encode)).mkString("/") +
     fragment.map("#" + _).getOrElse("")
 
