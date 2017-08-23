@@ -24,6 +24,8 @@ publishTo := {
   }
 }
 
+publishMavenStyle := true
+
 publishArtifact in Test := false
 
 pomIncludeRepository := (_ => false)
@@ -41,3 +43,9 @@ pomExtra := {
       </developer>
     </developers>
 }
+
+useGpg := true
+
+useGpgAgent := true
+
+usePgpKeyHex("7A198644")
