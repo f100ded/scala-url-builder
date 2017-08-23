@@ -8,10 +8,11 @@ Scala URL Builder is a minimalist library for constructing URLs. It's native to 
 
 To get started, add the following dependency into your project:
 ```scala
-libraryDependencies += "org.f100ded.scala-url-builder" % "scala-url-builder" % "1.0.0"
+libraryDependencies += "org.f100ded.scala-url-builder" % "scala-url-builder" % "LATEST_VERSION"
 ```
+Replace LATEST_VERSION with the actual release version from [the releases page](https://github.com/f100ded/scala-url-builder/releases).
 
-And then you can start using the builder
+And then you can start using the builder:
 ```scala
 import org.f100ded.scalaurlbuilder.URLBuilder
 
