@@ -84,9 +84,9 @@ class URLBuilderSpec extends FlatSpec {
   }
 
   it should "handle fragments with and without leading #" in {
-    assert(URLBuilder("http://api/v1").withFragment(Some("fragment")).toString() == "http://api/v1#fragment")
-    assert(URLBuilder("http://api/v1").withFragment(Some("#fragment")).toString() == "http://api/v1#fragment")
-    assert(URLBuilder("http://api/v1").withFragment(Some("##fragment")).toString() == "http://api/v1#%23fragment")
+    assert(URLBuilder("http://api/v1").withFragment("fragment").toString() == "http://api/v1#fragment")
+    assert(URLBuilder("http://api/v1").withFragment("#fragment").toString() == "http://api/v1#fragment")
+    assert(URLBuilder("http://api/v1").withFragment("##fragment").toString() == "http://api/v1#%23fragment")
   }
 
   it should "construct an URL" in {
@@ -94,7 +94,7 @@ class URLBuilderSpec extends FlatSpec {
     val builder = URLBuilder("http://localhost")
       .withPathSegments("segment1/segment2", "file1")
       .withQueryParameters("q1" -> "http://a/b c/c?x=1")
-      .withFragment(Some("ref1"))
+      .withFragment("ref1")
 
     assert(builder.toURL.toString == expectedString)
   }

@@ -47,8 +47,8 @@ class URLBuilder private(base: String,
     * @param newFragment A new fragment
     * @return A new builder with the fragment
     */
-  def withFragment(newFragment: Option[String]): URLBuilder = {
-    new URLBuilder(base, pathSegments, queryParameters, newFragment.map(f => normalize(f.stripPrefix("#"))))
+  def withFragment(newFragment: String): URLBuilder = {
+    new URLBuilder(base, pathSegments, queryParameters, Some(normalize(newFragment.stripPrefix("#"))))
   }
 
   /**
