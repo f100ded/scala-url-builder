@@ -18,11 +18,13 @@ And then you can start using the builder:
 ```scala
 import org.f100ded.scalaurlbuilder.URLBuilder
 
-val url = URLBuilder(base = "https://foo/bar?api_key=foo_bar")
-    .withFragment("#ref1")
-    .withPathSegments("segment1/segment2/segment3/", "..", "/segment4", "segment5/")
-    .withQueryParameters(
-      "lat" -> "51.509865",
-      "lon" -> "‎-0.118092"
-    ).toString
+val url = URLBuilder(base = "http://localhost/?api_key=foo_bar")
+  .withFragment("#ref1")
+  .withPathSegments("segment1/segment2/", "segment3/")
+  .withQueryParameters(
+    "lat" -> "51.509865",
+    "lon" -> "-0.118092"
+  ).toString
+
+// url = http://localhost/segment1/segment2/segment3/#ref1?api_key=foo_bar&lat=51.509865&lon=-0.118092
 ```
