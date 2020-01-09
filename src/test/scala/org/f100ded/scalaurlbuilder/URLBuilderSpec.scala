@@ -1,8 +1,8 @@
 package org.f100ded.scalaurlbuilder
 
-import org.scalatest.FlatSpec
+import org.scalatest.flatspec.AnyFlatSpec
 
-class URLBuilderSpec extends FlatSpec {
+class URLBuilderSpec extends AnyFlatSpec {
   behavior of "URLBuilder"
   val base = URLBuilder("http://localhost/")
 
